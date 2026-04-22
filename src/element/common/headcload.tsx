@@ -27,23 +27,47 @@ export default function HeadCload() {
             }
         }
         if (config?.header?.headjs) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(config?.header?.headjs, "text/html");
+
             if (typeof window !== "undefined") {
                 if (!loadjs) {
                     const head = document.querySelector("head");
-                    let s: any = document.createElement('script');
-                    let _ex: any = document.getElementById('extra_headjs');
-                    if (!_ex) {
-                        s.type = 'text/javascript';
-                        s.async = true;
-                        s.innerHTML = config?.header?.headjs;
-                        s.rel = "preload";
-                        s.id = "extra_headjs";
-                        head?.appendChild(s);
-                    }
+
+                    doc.querySelectorAll("script").forEach((oldScript, index) => {
+                        const scriptId = `ext_script_${index}`;
+                        if (!document.getElementById(scriptId)) {
+                            const newScript = document.createElement("script");
+                            Array.from(oldScript.attributes).forEach(attr => {
+                                newScript.setAttribute(attr.name, attr.value);
+                            });
+                            newScript.textContent = oldScript.textContent;
+                            newScript.id = scriptId;
+                            head?.appendChild(newScript);
+                        }
+                    });
+
+
+                    const otherNodes = Array.from(doc.head.childNodes).concat(Array.from(doc.body.childNodes));
+
+                    otherNodes.forEach((node, index) => {
+                        if (node.nodeName !== "SCRIPT" && node.nodeName !== "#text") {
+                            const nodeId = `extra_head_node_${index}`;
+                            if (!document.getElementById(nodeId) && node instanceof HTMLElement) {
+                                const newNode = node.cloneNode(true) as HTMLElement;
+                                newNode.id = nodeId;
+                                head?.appendChild(newNode);
+                            }
+                        } else if (node.nodeName === "#text" && node.textContent?.trim()) {
+
+                        }
+                    });
+
                     setLoadjs(true);
                 }
             }
         }
+
     }, [config]);
     return (
         <>
