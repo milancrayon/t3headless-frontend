@@ -1,4 +1,4 @@
-const { API_LICENSE_KEY } = require("./config");
+const { API_LICENSE_KEY, API_KEY } = require("./config");
 const axios = require("axios");
 const path = require("path");
 const { execSync } = require("child_process");
@@ -7,7 +7,7 @@ const fs = require("fs");
 
 const API_HEADERS = {
   "Content-Type": "application/json",
-  lcapikey: "tA70mUx09XpS3TDY7KP0z3c3EfY9g1Z4",
+  lcapikey: API_KEY,
   licensekey: API_LICENSE_KEY,
   productkey: "t3headless",
 };
