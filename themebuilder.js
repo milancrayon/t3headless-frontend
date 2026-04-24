@@ -2,14 +2,13 @@
 const fs = require('fs/promises');
 const path = require('path');
 const axios = require('axios');
-const { API_LICENSE_KEY } = require("./config");
-
+const { API_LICENSE_KEY, API_KEY } = require("./config");
 
 const ELEMENT_DIR = path.join(process.cwd(), 'src', 'element');
 
 const API_HEADERS = {
     'Content-Type': 'application/json',
-    'lcapikey': 'tA70mUx09XpS3TDY7KP0z3c3EfY9g1Z4',
+    'lcapikey': API_KEY,
     'licensekey': API_LICENSE_KEY,
     'productkey': 't3headless'
 };
