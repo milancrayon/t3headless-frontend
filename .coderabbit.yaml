@@ -1,0 +1,10 @@
+reviews:
+  auto_review: true
+  request_changes_workflow: true
+
+  # IMPORTANT: allow all branches
+  only_default_branch: false
+
+  # optional (recommended)
+  high_level_summary: true
+  review_status: true
