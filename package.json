@@ -7,11 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "setup": "npm install && node setup-theme.js",
+    "setup": "node setup-theme.js",
     "themebuild": "node themebuilder.js",
-    "obfuscate:setup": "javascript-obfuscator setup-theme.src.js --output setup-theme.js --compact true --control-flow-flattening true --dead-code-injection true --string-array-encoding base64 --unicode-escape-sequence true",
-    "obfuscate:theme": "javascript-obfuscator themebuilder.src.js --output themebuilder.js --compact true --control-flow-flattening true --dead-code-injection true --string-array-encoding base64 --unicode-escape-sequence true",
-    "obfuscate": "npm run obfuscate:setup && npm run obfuscate:theme"
+    "postinstall": "node setup-theme.js"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^16.1.6",

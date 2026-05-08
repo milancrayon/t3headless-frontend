@@ -14,11 +14,11 @@ import { isGeneratorFunction } from 'util/types';
 export default function Tforms({ data }: any) {
     const config = useConfig();
     data = getFormDefination(data, config);
-    let _fdata: any = data?.form;
-    let _stpes: any = _fdata?.renderables;
-    let [visiblestep, SetVisible] = useState(0);
-    let [schema, SetSchema]: any = useState(null);
-    let [confirmmessage, SetConfirmmessage]: any = useState(null);
+    const _fdata: any = data?.form;
+    const _stpes: any = _fdata?.renderables;
+    const [visiblestep, SetVisible] = useState(0);
+    const [schema, SetSchema]: any = useState(null);
+    const [confirmmessage, SetConfirmmessage]: any = useState(null);
     const { push } = useRouter();
 
     useEffect(() => {
@@ -67,7 +67,7 @@ export default function Tforms({ data }: any) {
     }
 
     const prepareValidationSchema = async () => {
-        let _validation: any = new Object();
+        const _validation: any = new Object();
         await _stpes?.map(async (_ctep: any, index: any) => {
             if (_ctep?.type == "Page") {
                 await _ctep?.renderables?.map(async (_fld: any) => {
@@ -76,12 +76,12 @@ export default function Tforms({ data }: any) {
                             if (__fld?.validators?.length > 0) {
                                 await __fld?.validators?.map(async (_val: any) => {
                                     if (_val?.identifier == "NotEmpty") {
-                                        var _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
-                                        var _msg: any = '';
-                                        var _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
+                                        const _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
+                                        let _msg: any = '';
+                                        const _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
                                         _msg = _ms[0]?.msg;
                                         if (__fld?.properties?.validationErrorMessages?.length) {
-                                            var _cer = await __fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
+                                            const _cer = await __fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
                                             if (_cer?.length > 0) {
                                                 _msg = _cer[0]?.message;
                                             }
@@ -163,11 +163,11 @@ export default function Tforms({ data }: any) {
                                 var _msg: any = '';
                                 await __fld?.validators?.map(async (_val: any) => {
                                     if (_val?.identifier == "NotEmpty") {
-                                        var _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
-                                        var _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
+                                        const _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
+                                        const _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
                                         _rmsg = _ms[0]?.msg;
                                         if (__fld?.properties?.validationErrorMessages?.length) {
-                                            var _cer = await __fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
+                                            const _cer = await __fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
                                             if (_cer?.length > 0) {
                                                 _rmsg = _cer[0]?.message;
                                             }
@@ -186,11 +186,11 @@ export default function Tforms({ data }: any) {
                                 var _re = await formErrors.filter(function (el: any) { return el.code == 1221565130 });
                                 await __fld?.validators?.map(async (_val: any) => {
                                     if (_val?.identifier == "NotEmpty") {
-                                        var _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
-                                        var _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
+                                        const _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
+                                        const _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
                                         _rmsg = _ms[0]?.msg;
                                         if (__fld?.properties?.validationErrorMessages?.length) {
-                                            var _cer = await __fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
+                                            const _cer = await __fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
                                             if (_cer?.length > 0) {
                                                 _rmsg = _cer[0]?.message;
                                             }
@@ -211,11 +211,11 @@ export default function Tforms({ data }: any) {
                                 var _re = await formErrors.filter(function (el: any) { return el.code == 1221565130 });
                                 await __fld?.validators?.map(async (_val: any) => {
                                     if (_val?.identifier == "NotEmpty") {
-                                        var _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
-                                        var _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
+                                        const _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
+                                        const _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
                                         _rmsg = _ms[0]?.msg;
                                         if (__fld?.properties?.validationErrorMessages?.length) {
-                                            var _cer = await __fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
+                                            const _cer = await __fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
                                             if (_cer?.length > 0) {
                                                 _rmsg = _cer[0]?.message;
                                             }
@@ -233,12 +233,12 @@ export default function Tforms({ data }: any) {
                             if (__fld?.validators?.length > 0) {
                                 await __fld?.validators?.map(async (_val: any) => {
                                     if (_val?.identifier == "NotEmpty") {
-                                        var _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
-                                        var _msg: any = '';
-                                        var _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
+                                        const _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
+                                        let _msg: any = '';
+                                        const _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
                                         _msg = _ms[0]?.msg;
                                         if (__fld?.properties?.validationErrorMessages?.length) {
-                                            var _cer = await __fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
+                                            const _cer = await __fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
                                             if (_cer?.length > 0) {
                                                 _msg = _cer[0]?.message;
                                             }
@@ -257,10 +257,10 @@ export default function Tforms({ data }: any) {
                                     var _errors = await formErrors.filter(function (el: any) { return el.identifier == "EmailAddress"; });
                                     if (_val?.identifier == "NotEmpty") {
                                         var _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
-                                        var _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
+                                        const _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
                                         _rmsg = _ms[0]?.msg;
                                         if (__fld?.properties?.validationErrorMessages?.length) {
-                                            var _cer = await __fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
+                                            const _cer = await __fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
                                             if (_cer?.length > 0) {
                                                 _rmsg = _cer[0]?.message;
                                             }
@@ -288,11 +288,11 @@ export default function Tforms({ data }: any) {
                                 var validFileExtensions: any = __fld?.properties?.allowedMimeTypes;
                                 await __fld?.validators?.map(async (_val: any) => {
                                     if (_val?.identifier == "NotEmpty") {
-                                        var _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
-                                        var _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
+                                        const _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
+                                        const _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
                                         _rmsg = _ms[0]?.msg;
                                         if (__fld?.properties?.validationErrorMessages?.length) {
-                                            var _cer = await __fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
+                                            const _cer = await __fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
                                             if (_cer?.length > 0) {
                                                 _rmsg = _cer[0]?.message;
                                             }
@@ -300,10 +300,10 @@ export default function Tforms({ data }: any) {
 
 
                                         if (__fld?.validators[1]?.options !== undefined) {
-                                            var minimum = __fld?.validators[1]?.options?.minimum ? __fld?.validators[1]?.options?.minimum : "0B";
-                                            var maximum = __fld?.validators[1]?.options?.minimum ? __fld?.validators[1]?.options?.maximum : "0B";
-                                            var maximum_val = maximum;
-                                            var minimum_val = minimum;
+                                            const minimum = __fld?.validators[1]?.options?.minimum ? __fld?.validators[1]?.options?.minimum : "0B";
+                                            const maximum = __fld?.validators[1]?.options?.minimum ? __fld?.validators[1]?.options?.maximum : "0B";
+                                            let maximum_val = maximum;
+                                            let minimum_val = minimum;
                                             if (maximum.toLowerCase().split('b').pop() != maximum.toLowerCase()) {
                                                 maximum_val = maximum.toLowerCase().split('b')[0] * 1;
                                             }
@@ -332,10 +332,14 @@ export default function Tforms({ data }: any) {
 
                                             _validation[__fld?.identifier] = Yup.mixed<File>().test("fileFormat", "Unsupported File Format", (value: any) => {
                                                 if (value) {
-                                                    return (
-                                                        validFileExtensions.includes(value.type)
+                                                    const extension = value.name.split('.').pop()?.toLowerCase();
+                                                    const isMimeValid = validFileExtensions.includes(value.type);
+                                                    const isExtensionValid = validFileExtensions.some((mime: string) => 
+                                                        mime.toLowerCase().includes(extension || "") || (extension === "jpg" && mime.toLowerCase().includes("jpeg"))
                                                     );
+                                                    return isMimeValid && isExtensionValid;
                                                 }
+                                                return true;
                                             }).test("file", `The file size between ${minimum} to ${maximum} `, (value: any) => {
                                                 if (value) {
                                                     return (
@@ -346,27 +350,31 @@ export default function Tforms({ data }: any) {
                                         } else {
                                             _validation[__fld?.identifier] = Yup.mixed().test("fileFormat", "Unsupported File Format", (value: any) => {
                                                 if (value) {
-                                                    return (
-                                                        validFileExtensions.includes(value.type)
+                                                    const extension = value.name.split('.').pop()?.toLowerCase();
+                                                    const isMimeValid = validFileExtensions.includes(value.type);
+                                                    const isExtensionValid = validFileExtensions.some((mime: string) => 
+                                                        mime.toLowerCase().includes(extension || "") || (extension === "jpg" && mime.toLowerCase().includes("jpeg"))
                                                     );
+                                                    return isMimeValid && isExtensionValid;
                                                 } else {
                                                     return true;
                                                 }
-                                            }
-                                            ).required(_rmsg);
+                                            }).required(_rmsg);
                                         }
                                     } else {
                                         if (validFileExtensions?.length > 0) {
                                             _validation[__fld?.identifier] = Yup.mixed().test("fileFormat", "Unsupported File Format", (value: any) => {
                                                 if (value) {
-                                                    return (
-                                                        validFileExtensions.includes(value.type)
+                                                    const extension = value.name.split('.').pop()?.toLowerCase();
+                                                    const isMimeValid = validFileExtensions.includes(value.type);
+                                                    const isExtensionValid = validFileExtensions.some((mime: string) => 
+                                                        mime.toLowerCase().includes(extension || "") || (extension === "jpg" && mime.toLowerCase().includes("jpeg"))
                                                     );
+                                                    return isMimeValid && isExtensionValid;
                                                 } else {
                                                     return true;
                                                 }
-                                            }
-                                            );
+                                            });
                                         }
                                     }
                                 });
@@ -375,9 +383,12 @@ export default function Tforms({ data }: any) {
                                 if (validFileExtensions?.length > 0) {
                                     _validation[__fld?.identifier] = Yup.mixed().test("fileFormat", "Unsupported File Format", (value: any) => {
                                         if (value) {
-                                            return (
-                                                validFileExtensions.includes(value.type)
+                                            const extension = value.name.split('.').pop()?.toLowerCase();
+                                            const isMimeValid = validFileExtensions.includes(value.type);
+                                            const isExtensionValid = validFileExtensions.some((mime: string) => 
+                                                mime.toLowerCase().includes(extension || "") || (extension === "jpg" && mime.toLowerCase().includes("jpeg"))
                                             );
+                                            return isMimeValid && isExtensionValid;
                                         } else {
                                             return true;
                                         }
@@ -392,12 +403,12 @@ export default function Tforms({ data }: any) {
                         if (_fld?.validators?.length > 0) {
                             await _fld?.validators?.map(async (_val: any) => {
                                 if (_val?.identifier == "NotEmpty") {
-                                    var _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
-                                    var _msg: any = '';
-                                    var _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
+                                    const _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
+                                    let _msg: any = '';
+                                    const _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
                                     _msg = _ms[0]?.msg;
                                     if (_fld?.properties?.validationErrorMessages?.length) {
-                                        var _cer = await _fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
+                                        const _cer = await _fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
                                         if (_cer?.length > 0) {
                                             _msg = _cer[0]?.message;
                                         }
@@ -479,11 +490,11 @@ export default function Tforms({ data }: any) {
                             var _msg: any = '';
                             await _fld?.validators?.map(async (_val: any) => {
                                 if (_val?.identifier == "NotEmpty") {
-                                    var _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
-                                    var _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
+                                    const _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
+                                    const _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
                                     _rmsg = _ms[0]?.msg;
                                     if (_fld?.properties?.validationErrorMessages?.length) {
-                                        var _cer = await _fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
+                                        const _cer = await _fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
                                         if (_cer?.length > 0) {
                                             _rmsg = _cer[0]?.message;
                                         }
@@ -502,11 +513,11 @@ export default function Tforms({ data }: any) {
                             var _re = await formErrors.filter(function (el: any) { return el.code == 1221565130 });
                             await _fld?.validators?.map(async (_val: any) => {
                                 if (_val?.identifier == "NotEmpty") {
-                                    var _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
-                                    var _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
+                                    const _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
+                                    const _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
                                     _rmsg = _ms[0]?.msg;
                                     if (_fld?.properties?.validationErrorMessages?.length) {
-                                        var _cer = await _fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
+                                        const _cer = await _fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
                                         if (_cer?.length > 0) {
                                             _rmsg = _cer[0]?.message;
                                         }
@@ -527,11 +538,11 @@ export default function Tforms({ data }: any) {
                             var _re = await formErrors.filter(function (el: any) { return el.code == 1221565130 });
                             await _fld?.validators?.map(async (_val: any) => {
                                 if (_val?.identifier == "NotEmpty") {
-                                    var _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
-                                    var _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
+                                    const _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
+                                    const _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
                                     _rmsg = _ms[0]?.msg;
                                     if (_fld?.properties?.validationErrorMessages?.length) {
-                                        var _cer = await _fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
+                                        const _cer = await _fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
                                         if (_cer?.length > 0) {
                                             _rmsg = _cer[0]?.message;
                                         }
@@ -549,12 +560,12 @@ export default function Tforms({ data }: any) {
                         if (_fld?.validators?.length > 0) {
                             await _fld?.validators?.map(async (_val: any) => {
                                 if (_val?.identifier == "NotEmpty") {
-                                    var _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
-                                    var _msg: any = '';
-                                    var _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
+                                    const _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
+                                    let _msg: any = '';
+                                    const _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
                                     _msg = _ms[0]?.msg;
                                     if (_fld?.properties?.validationErrorMessages?.length) {
-                                        var _cer = await _fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
+                                        const _cer = await _fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
                                         if (_cer?.length > 0) {
                                             _msg = _cer[0]?.message;
                                         }
@@ -573,10 +584,10 @@ export default function Tforms({ data }: any) {
                                 var _errors = await formErrors.filter(function (el: any) { return el.identifier == "EmailAddress"; });
                                 if (_val?.identifier == "NotEmpty") {
                                     var _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
-                                    var _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
+                                    const _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
                                     _rmsg = _ms[0]?.msg;
                                     if (_fld?.properties?.validationErrorMessages?.length) {
-                                        var _cer = await _fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
+                                        const _cer = await _fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
                                         if (_cer?.length > 0) {
                                             _rmsg = _cer[0]?.message;
                                         }
@@ -604,11 +615,11 @@ export default function Tforms({ data }: any) {
                             var validFileExtensions: any = _fld?.properties?.allowedMimeTypes;
                             await _fld?.validators?.map(async (_val: any) => {
                                 if (_val?.identifier == "NotEmpty") {
-                                    var _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
-                                    var _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
+                                    const _errors = await formErrors.filter(function (el: any) { return el.identifier == "NotEmpty"; });
+                                    const _ms = await _errors.filter(function (el: any) { return el.code == 1221560718 });
                                     _rmsg = _ms[0]?.msg;
                                     if (_fld?.properties?.validationErrorMessages?.length) {
-                                        var _cer = await _fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
+                                        const _cer = await _fld?.properties?.validationErrorMessages?.filter(function (el: any) { return el.code == 1221560718 });
                                         if (_cer?.length > 0) {
                                             _rmsg = _cer[0]?.message;
                                         }
@@ -616,10 +627,10 @@ export default function Tforms({ data }: any) {
 
 
                                     if (_fld?.validators[1]?.options !== undefined) {
-                                        var minimum = _fld?.validators[1]?.options?.minimum ? _fld?.validators[1]?.options?.minimum : "0B";
-                                        var maximum = _fld?.validators[1]?.options?.minimum ? _fld?.validators[1]?.options?.maximum : "0B";
-                                        var maximum_val = maximum;
-                                        var minimum_val = minimum;
+                                        const minimum = _fld?.validators[1]?.options?.minimum ? _fld?.validators[1]?.options?.minimum : "0B";
+                                        const maximum = _fld?.validators[1]?.options?.minimum ? _fld?.validators[1]?.options?.maximum : "0B";
+                                        let maximum_val = maximum;
+                                        let minimum_val = minimum;
                                         if (maximum.toLowerCase().split('b').pop() != maximum.toLowerCase()) {
                                             maximum_val = maximum.toLowerCase().split('b')[0] * 1;
                                         }
@@ -648,10 +659,14 @@ export default function Tforms({ data }: any) {
 
                                         _validation[_fld?.identifier] = Yup.mixed<File>().test("fileFormat", "Unsupported File Format", (value: any) => {
                                             if (value) {
-                                                return (
-                                                    validFileExtensions.includes(value.type)
+                                                const extension = value.name.split('.').pop()?.toLowerCase();
+                                                const isMimeValid = validFileExtensions.includes(value.type);
+                                                const isExtensionValid = validFileExtensions.some((mime: string) => 
+                                                    mime.toLowerCase().includes(extension || "") || (extension === "jpg" && mime.toLowerCase().includes("jpeg"))
                                                 );
+                                                return isMimeValid && isExtensionValid;
                                             }
+                                            return true;
                                         }).test("file", `The file size between ${minimum} to ${maximum} `, (value: any) => {
                                             if (value) {
                                                 return (
@@ -662,27 +677,31 @@ export default function Tforms({ data }: any) {
                                     } else {
                                         _validation[_fld?.identifier] = Yup.mixed().test("fileFormat", "Unsupported File Format", (value: any) => {
                                             if (value) {
-                                                return (
-                                                    validFileExtensions.includes(value.type)
+                                                const extension = value.name.split('.').pop()?.toLowerCase();
+                                                const isMimeValid = validFileExtensions.includes(value.type);
+                                                const isExtensionValid = validFileExtensions.some((mime: string) => 
+                                                    mime.toLowerCase().includes(extension || "") || (extension === "jpg" && mime.toLowerCase().includes("jpeg"))
                                                 );
+                                                return isMimeValid && isExtensionValid;
                                             } else {
                                                 return true;
                                             }
-                                        }
-                                        ).required(_rmsg);
+                                        }).required(_rmsg);
                                     }
                                 } else {
                                     if (validFileExtensions?.length > 0) {
                                         _validation[_fld?.identifier] = Yup.mixed().test("fileFormat", "Unsupported File Format", (value: any) => {
                                             if (value) {
-                                                return (
-                                                    validFileExtensions.includes(value.type)
+                                                const extension = value.name.split('.').pop()?.toLowerCase();
+                                                const isMimeValid = validFileExtensions.includes(value.type);
+                                                const isExtensionValid = validFileExtensions.some((mime: string) => 
+                                                    mime.toLowerCase().includes(extension || "") || (extension === "jpg" && mime.toLowerCase().includes("jpeg"))
                                                 );
+                                                return isMimeValid && isExtensionValid;
                                             } else {
                                                 return true;
                                             }
-                                        }
-                                        );
+                                        });
                                     }
                                 }
                             });
@@ -691,14 +710,16 @@ export default function Tforms({ data }: any) {
                             if (validFileExtensions?.length > 0) {
                                 _validation[_fld?.identifier] = Yup.mixed().test("fileFormat", "Unsupported File Format", (value: any) => {
                                     if (value) {
-                                        return (
-                                            validFileExtensions.includes(value.type)
+                                        const extension = value.name.split('.').pop()?.toLowerCase();
+                                        const isMimeValid = validFileExtensions.includes(value.type);
+                                        const isExtensionValid = validFileExtensions.some((mime: string) => 
+                                            mime.toLowerCase().includes(extension || "") || (extension === "jpg" && mime.toLowerCase().includes("jpeg"))
                                         );
+                                        return isMimeValid && isExtensionValid;
                                     } else {
                                         return true;
                                     }
-                                }
-                                );
+                                });
                             }
                         }
                     }
@@ -710,17 +731,17 @@ export default function Tforms({ data }: any) {
     }
 
     const sendEmailtoSender = async (_options: any, files: any, files_identifier: any) => {
-        let _findl: any = new Object();
-        let _markers: any = [];
+        const _findl: any = new Object();
+        const _markers: any = [];
 
         if (Object.keys(files_identifier).length > 0) {
             Object.keys(files_identifier).map((_files: any, index: any) => {
                 delete formik?.values[_files];
             })
         }
-        let fdata: any = formik?.values;
+        const fdata: any = formik?.values;
         await Object.keys(formik?.values).map(async (_val: any, i: any) => {
-            let _tmp: any = new Object();
+            const _tmp: any = new Object();
 
             await _stpes?.map(async (_ctep: any, index: any) => {
                 if (_ctep?.type == "Page") {
@@ -760,10 +781,10 @@ export default function Tforms({ data }: any) {
 
 
 
-            let _updated_sub = _options.subject.replaceAll('{' + _val + '}', formik.values[_val]);
-            let _updated_sadress = _options.senderAddress.replaceAll('{' + _val + '}', formik.values[_val]);
-            let _usname = _options.senderName.replaceAll('{' + _val + '}', formik.values[_val]);
-            let _title = _options.title.replaceAll('{' + _val + '}', formik.values[_val]);
+            const _updated_sub = _options.subject.replaceAll('{' + _val + '}', formik.values[_val]);
+            const _updated_sadress = _options.senderAddress.replaceAll('{' + _val + '}', formik.values[_val]);
+            const _usname = _options.senderName.replaceAll('{' + _val + '}', formik.values[_val]);
+            const _title = _options.title.replaceAll('{' + _val + '}', formik.values[_val]);
             _options.subject = _options?.subject ? _updated_sub : "";
             _options.senderAddress = _options?.senderAddress ? _updated_sadress : "";
             _options.senderName = _options?.senderName ? _usname : "";
@@ -771,7 +792,7 @@ export default function Tforms({ data }: any) {
         });
 
         if (_options?.recipients) {
-            let _updated_R: any = new Object();
+            const _updated_R: any = new Object();
             await Object.keys(_options?.recipients).map((_val: any, i: any) => {
                 let _valll = _val;
                 let __cl_val = _options?.recipients[_val];
@@ -785,7 +806,7 @@ export default function Tforms({ data }: any) {
         }
 
         if (_options?.blindCarbonCopyRecipients) {
-            let _blindCarbonCopyRecipients: any = new Object();
+            const _blindCarbonCopyRecipients: any = new Object();
             await Object.keys(_options?.blindCarbonCopyRecipients).map((_val: any, i: any) => {
                 let _valll = _val;
                 let __cl_val = _options?.blindCarbonCopyRecipients[_val];
@@ -800,7 +821,7 @@ export default function Tforms({ data }: any) {
         }
 
         if (_options?.carbonCopyRecipients) {
-            let _carbonCopyRecipients: any = new Object();
+            const _carbonCopyRecipients: any = new Object();
             await Object.keys(_options?.carbonCopyRecipients).map((_val: any, i: any) => {
                 let _valll = _val;
                 let __cl_val = _options?.carbonCopyRecipients[_val];
@@ -814,7 +835,7 @@ export default function Tforms({ data }: any) {
         }
 
         if (_options?.replyToRecipients) {
-            let _replyToRecipients: any = new Object();
+            const _replyToRecipients: any = new Object();
             await Object.keys(_options?.replyToRecipients).map((_val: any, i: any) => {
                 let _valll = _val;
                 let __cl_val = _options?.replyToRecipients[_val];
@@ -827,10 +848,10 @@ export default function Tforms({ data }: any) {
             _options.replyToRecipients = _replyToRecipients;
         }
 
-        var attachments: any = [];
+        const attachments: any = [];
 
         if (Object.keys(files_identifier).length > 0) {
-            var __data = await fileUpload(files).then(async (_data) => {
+            const __data = await fileUpload(files).then(async (_data) => {
                 if (_data) {
                     if (_data?.uploads) {
                         Object.keys(files_identifier).map((_files: any, index: any) => {
@@ -854,14 +875,14 @@ export default function Tforms({ data }: any) {
         _findl['form'] = _fdata?.identifier;
         _findl['markers'] = _markers;
         _findl['uid'] = data?.uid;
-        let _resp = await submitForm(_findl);
+        const _resp = await submitForm(_findl);
     }
 
-    const redirecttoPage = async (_pid: any) => { 
-        let _pagedata = config?.pages?.find((pg: any) => {
+    const redirecttoPage = async (_pid: any) => {
+        const _pagedata = config?.pages?.find((pg: any) => {
             return pg?.uid == _pid;
         });
-        if(_pagedata){  
+        if (_pagedata) {
             push(_pagedata?.slugurl);
         }
     }
@@ -871,12 +892,12 @@ export default function Tforms({ data }: any) {
         validationSchema: Yup.object().shape(schema),
         onSubmit: (values, { resetForm }) => {
             if (_fdata?.finishers?.length > 0) {
-                var _isredirect = _fdata?.finishers?.filter(function (el: any) { return el?.identifier == "Redirect"; });
-                var _isconfirmation = _fdata?.finishers?.filter(function (el: any) { return el?.identifier == "Confirmation"; });
-                var _isemailtosender = _fdata?.finishers?.filter(function (el: any) { return el?.identifier == "EmailToSender"; });
-                var _isemailtoreceiver = _fdata?.finishers?.filter(function (el: any) { return el?.identifier == "EmailToReceiver"; });
-                var files = new FormData();
-                var files_identifier: any = {};
+                const _isredirect = _fdata?.finishers?.filter(function (el: any) { return el?.identifier == "Redirect"; });
+                const _isconfirmation = _fdata?.finishers?.filter(function (el: any) { return el?.identifier == "Confirmation"; });
+                const _isemailtosender = _fdata?.finishers?.filter(function (el: any) { return el?.identifier == "EmailToSender"; });
+                const _isemailtoreceiver = _fdata?.finishers?.filter(function (el: any) { return el?.identifier == "EmailToReceiver"; });
+                const files = new FormData();
+                const files_identifier: any = {};
                 _fdata?.renderables?.map((_fld: any, index: any) => {
                     _fld?.renderables?.map((_fd: any, index: any) => {
                         if (_fd.type == "FileUpload" || _fd.type == "ImageUpload") {
@@ -895,20 +916,20 @@ export default function Tforms({ data }: any) {
                     sendEmailtoSender(_isemailtoreceiver[0]?.options, files, files_identifier);
                 }
                 if (_isredirect?.length > 0) {
-                    let _pid = _isredirect[0]?.options?.pageUid;
+                    const _pid = _isredirect[0]?.options?.pageUid;
                     redirecttoPage(_pid);
                 } else {
                     if (_isconfirmation?.length > 0) {
-                        let _msg = _isconfirmation[0]?.options?.message;
+                        const _msg = _isconfirmation[0]?.options?.message;
                         SetConfirmmessage(_msg);
                     } else {
-                        let _msg = "Form Submitted Successfully!!";
+                        const _msg = "Form Submitted Successfully!!";
                         SetConfirmmessage(_msg);
                     }
                 }
                 resetForm();
             } else {
-                let _msg = "Form Submitted Successfully!!";
+                const _msg = "Form Submitted Successfully!!";
                 SetConfirmmessage(_msg);
             }
         },
@@ -925,7 +946,7 @@ export default function Tforms({ data }: any) {
     const renderFields = (_ctep: any, index: any) => {
         return (
             _ctep?.renderables?.map((_fld: any, _i: any) => (
-                <div key={_fld?.identifier + index + _ctep?.identifier + _i} className={`form-group mb-4 ${_ctep?.type == "GridRow" ? 'col flex-auto px-[15px]' : _ctep?.type == "GridColumn" ?"row" :""}`}>
+                <div key={_fld?.identifier + index + _ctep?.identifier + _i} className={`form-group mb-4 ${_ctep?.type == "GridRow" ? 'col flex-auto px-[15px]' : _ctep?.type == "GridColumn" ? "row" : ""}`}>
                     {_fld?.type != "Checkbox" && _fld?.type != "Hidden" && _fld?.type != "StaticText" && _fld?.type != "ContentElement" && _fld?.type != "Fieldset" && _fld?.type != "DatePicker" ?
                         <label htmlFor={_fld?.identifier} className='block text-sm font-medium leading-6  font-[400] text-gray-900 mb-2'>
                             {_fld?.label}
@@ -1302,8 +1323,8 @@ export default function Tforms({ data }: any) {
                                             {_stpes?.map((_ctep: any, index: any) => (
                                                 _ctep?.type == "Page" ?
                                                     _ctep?.renderables?.map((_fld: any, index: any) => (
-                                                        _fld?.type != "GridRow" && 
-                                                        _fld?.type != "GridColumn" && _fld?.type != "Fieldset" && _fld?.type != "Hidden" && _fld?.type != "StaticText" && _fld?.type != "ContentElement" && _fld?.type != "DatePicker" && _fld?.type != "FileUpload" && _fld?.type != "ImageUpload" && _fld?.type != "AdvancedPassword" ?
+                                                        _fld?.type != "GridRow" &&
+                                                            _fld?.type != "GridColumn" && _fld?.type != "Fieldset" && _fld?.type != "Hidden" && _fld?.type != "StaticText" && _fld?.type != "ContentElement" && _fld?.type != "DatePicker" && _fld?.type != "FileUpload" && _fld?.type != "ImageUpload" && _fld?.type != "AdvancedPassword" ?
                                                             <div key={_fld?.identifier + index + _ctep?.identifier + index} className='row'>
                                                                 <div className='col'>{_fld?.label}</div>
                                                                 <div className='col'>{formik.values[_fld?.identifier]}</div>

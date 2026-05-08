@@ -1,3 +1,4 @@
+import DOMPurify from "isomorphic-dompurify";
 import Nimage from "../common/image";
 import Nvideo from "../common/nvideo";
 import Cheader from "./cheader";
@@ -25,7 +26,6 @@ export default async function Textmedia({ data, element, config }: any) {
     const images = data?.assets || [];
     const layout = resolveLayout(data?.imageorient);
     const cols = data?.imagecols || 1;
-
     const renderMedia = () => (
         <div className={`${styles.gallery} ${styles["col-" + cols]}`}>
             {images.map((file: any, i: number) => (
@@ -42,7 +42,7 @@ export default async function Textmedia({ data, element, config }: any) {
         <div className={styles.text}>
             <Cheader data={data} config={config} />
             {data?.bodytext &&
-                <div dangerouslySetInnerHTML={{ __html: data.bodytext }} />}
+                <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(data.bodytext) }} />}
         </div>
     );
 

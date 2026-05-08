@@ -10,7 +10,6 @@ export default async function Header() {
   const config = await getBaseInfo();
   let pdata: any = null;
   let langpdata: any = null;
-
   const cookieStore = await cookies();
   const url = cookieStore.get('pathname')?.value ?? '';
 

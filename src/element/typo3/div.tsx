@@ -5,4 +5,3 @@ export default function Divider({ data, element }: any) {
         <hr className={styles.divider} />
     )
 }
-    

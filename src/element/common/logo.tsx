@@ -8,7 +8,6 @@ export default function Logo({ header }: any) {
 
   const width = header?.logo_width || 200;
   const height = header?.logo_height || 80;
-
   return (
     <div className={styles.wrapper}>
       <Link href="/" aria-label="Logo" className={styles.link}>

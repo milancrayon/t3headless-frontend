@@ -4,12 +4,11 @@ import ReactPlayer from "react-player";
 
 export default function Nvideo({ data, immg, config }: any) {
     const [_path, setPPath] = useState<any>(null);
-
     const changepath = (immg: any, data: any) => {
         setPPath(immg?.url);
     }
     const youtubeurlset = async (immg: any) => {
-        let _youtube = "https://www.youtube.com/embed/" + immg?.youtube;
+        const _youtube = "https://www.youtube.com/embed/" + immg?.youtube;
         setPPath(_youtube);
     }
     useEffect(() => {
@@ -26,7 +25,7 @@ export default function Nvideo({ data, immg, config }: any) {
         }
         if (immg?.extension === "youtube") {
             youtubeurlset(immg);
-        } 
+        }
     }, [immg]);
 
     return (

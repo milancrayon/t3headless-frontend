@@ -4,7 +4,6 @@ import styles from "./styles/scrolltotop.module.css";
 
 export default function ScrollToTop() {
     const [show, setShow] = useState(false);
-
     useEffect(() => {
         const onScroll = () => {
             setShow(window.scrollY > 120);
