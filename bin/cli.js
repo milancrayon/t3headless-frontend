@@ -21,8 +21,7 @@ try {
     execSync('npm install', { stdio: 'inherit' });
 
     console.log('\n✅ Success!');
-    console.log(`\nRun: cd ${projectName} && npm run dev`);
-
+    
 } catch (error) {
     console.error('❌ Error:', error.message);
 }
