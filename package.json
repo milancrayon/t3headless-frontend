@@ -1,6 +1,6 @@
 {
   "name": "t3headless-frontend",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Next.js frontend package",
   "main": "index.js",
   "private": false,
