@@ -52,15 +52,16 @@ function applySecurityHeaders(response: NextResponse) {
     response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
     const cspHeader = `
         default-src 'self';
-        script-src 'self' 'unsafe-eval' 'unsafe-inline';
-        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        script-src 'self' 'unsafe-eval' 'unsafe-inline' https://js.hcaptcha.com https://*.hcaptcha.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.hcaptcha.com;
         img-src 'self' blob: data: ${process.env.NEXT_PUBLIC_SERVER || ''};
         font-src 'self' https://fonts.gstatic.com;
-        connect-src 'self' ${process.env.NEXT_PUBLIC_SERVER || ''} https://headless.t3api.com;
+        connect-src 'self' ${process.env.NEXT_PUBLIC_SERVER || ''} https://headless.t3api.com https://*.hcaptcha.com;
         object-src 'none';
         base-uri 'self';
         form-action 'self' ${process.env.NEXT_PUBLIC_SERVER || ''} https://headless.t3api.com;
         frame-ancestors 'none';
+        frame-src 'self' https://www.google.com https://maps.google.com https://www.youtube.com https://*.hcaptcha.com;
         upgrade-insecure-requests;
     `.replace(/\s{2,}/g, ' ').trim();
 
