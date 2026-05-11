@@ -1,7 +1,15 @@
 {
   "name": "t3headless-frontend",
   "version": "1.0.0",
-  "private": true,
+  "description": "Next.js frontend package",
+  "main": "index.js",
+  "private": false,
+  "files": [
+    "bin/cli.js"
+  ],
+  "bin": {
+    "t3headless-frontend": "bin/cli.js"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
